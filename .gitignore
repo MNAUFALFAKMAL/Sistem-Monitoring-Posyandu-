@@ -1,0 +1,58 @@
+# ============================
+# Laravel Backend
+# ============================
+
+/vendor/
+/node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.backup
+.phpunit.result.cache
+storage/*.key
+storage/logs/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*.php
+storage/debugbar/*
+bootstrap/cache/*.php
+
+# Composer
+composer.phar
+
+# Laravel specific caches
+public/storage
+public/hot
+public/build
+
+# ============================
+# React / Vite Frontend
+# ============================
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vite
+dist/
+*.local
+
+# Environment
+.env
+.env.*
+
+# Logs
+*.log
+logs/
+
+# Editor folders
+.vscode/
+.idea/
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
