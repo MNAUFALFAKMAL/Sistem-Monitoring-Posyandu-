@@ -1,156 +1,224 @@
-📘 Sistem Monitoring Posyandu – Full Documentation
+<!-- ====================================================== -->
+<!-- ================  SISTEM MONITORING POSYANDU ========== -->
+<!-- ====================================================== -->
 
-Aplikasi Sistem Monitoring Posyandu terdiri dari 2 bagian:
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:00C9FF,100:92FE9D&text=Sistem%20Monitoring%20Posyandu&fontSize=40&fontColor=ffffff&animation=twinkling&fontAlignY=40">
+</p>
 
-Backend → Laravel 10 (REST API)
+<div align="center">
 
-Frontend → React + Vite + TailwindCSS
+# 🚀 Fullstack Application (Laravel API + React Vite)
 
-Dokumentasi ini memuat seluruh panduan instalasi, fitur, struktur folder, dan API.
+Sistem digital untuk memantau data Posyandu, termasuk balita, ibu hamil, jadwal, laporan, dan manajemen kader & admin.
 
-🌐 1. Project Overview
+</div>
 
-Sistem ini dibuat untuk:
+---
 
-Monitoring data Balita
+<br>
 
-Monitoring data Ibu Hamil
+# 📌 **Tech Stack**
 
-Manajemen Jadwal Posyandu
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-10-red?style=for-the-badge&logo=laravel">
+  <img src="https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react">
+  <img src="https://img.shields.io/badge/Vite-Fast-purple?style=for-the-badge&logo=vite">
+  <img src="https://img.shields.io/badge/TailwindCSS-UI%20Framework-06B6D4?style=for-the-badge&logo=tailwindcss">
+  <img src="https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql">
+</p>
 
-Sistem Pengaduan Masyarakat
+---
 
-Multi role: Admin, Kader, Publik
+<br>
 
-Backend API menggunakan Laravel Sanctum
+# 📚 **Daftar Isi**
+- [📖 Deskripsi](#-deskripsi)  
+- [📂 Struktur Project](#-struktur-project)  
+- [🛠️ Instalasi Backend Laravel](#-instalasi-backend-laravel)  
+- [🎨 Instalasi Frontend React](#-instalasi-frontend-react)  
+- [🧩 Fitur-Fitur utama](#-fitur-fitur-utama)  
+- [📡 Daftar API Endpoint](#-daftar-api-endpoint)  
+- [📁 Struktur Folder Lengkap](#-struktur-folder-lengkap)  
+- [⚡ Cara Menjalankan Fullstack](#-cara-menjalankan-fullstack)  
+- [📄 License](#-license)
 
-Frontend menggunakan React dengan Vite
+---
 
-🛠 2. Instalasi Project (Root)
+<br>
 
-Clone repository ini:
+# 📖 **Deskripsi**
 
-git clone https://github.com/MNAUFALFAKMAL/Sistem-Monitoring-Posyandu-.git
-cd Sistem-Monitoring-Posyandu-
+Sistem Monitoring Posyandu merupakan aplikasi **Fullstack Modern** yang digunakan untuk:
 
+- Pendataan **balita**  
+- Monitoring **ibu hamil**  
+- Pengelolaan **jadwal kegiatan**  
+- Sistem **pengaduan masyarakat**  
+- Role **Admin & Kader**  
+- Dashboard interaktif  
+- API lengkap berbasis **Laravel + Sanctum**
 
-Project terdiri dari:
+Semua proses dirancang dengan UI modern + API clean.
 
-posyandu-backend/   → Laravel REST API
-posyandu-frontend/  → React + Vite
+---
 
-🚀 3. Backend – Laravel API
-📌 Lokasi: posyandu-backend/
-🔧 Instalasi Backend
-1. Masuk ke folder backend
+<br>
+
+# 📂 **Struktur Project Utama**
+
+```
+Sistem-Monitoring-Posyandu-/
+ ├── posyandu-backend/     → Laravel API
+ ├── posyandu-frontend/    → React + Vite
+ └── README.md             → Dokumentasi utama
+```
+
+---
+
+<br>
+
+# 🛠️ **Instalasi Backend Laravel**
+
+Masuk ke backend:
+
+```sh
 cd posyandu-backend
+```
 
-2. Install dependency PHP
+Install dependency:
+
+```sh
 composer install
+```
 
-3. Copy file environment
+Copy konfigurasi:
+
+```sh
 cp .env.example .env
-
-4. Generate key
 php artisan key:generate
+```
 
-5. Buat database di MySQL
+Buat database lokal: **posyandu**
 
-Nama rekomendasi:
+Set `.env`:
 
-posyandu
-
-6. Edit konfigurasi database di .env
+```
 DB_DATABASE=posyandu
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
-7. Jalankan migration + seeder
+Migrasi + Seeder:
+
+```sh
 php artisan migrate --seed
+```
 
-8. Jalankan server
+Jalankan backend:
+
+```sh
 php artisan serve
+```
 
+➡ Backend berjalan di: **http://127.0.0.1:8000**
 
-Akses API:
-http://127.0.0.1:8000
+---
 
-⚙ Fitur Backend
+<br>
 
-Login & autentikasi (Laravel Sanctum)
+# 🎨 **Instalasi Frontend React + Vite**
 
-CRUD Data Balita
+Masuk folder frontend:
 
-CRUD Ibu Hamil
+```sh
+cd posyandu-frontend
+```
 
-CRUD Jadwal
+Install dependency:
 
-Sistem Pengaduan
+```sh
+npm install
+```
 
-Middleware role (Admin / Kader)
+Jalankan frontend:
 
-Email Notification (opsional)
+```sh
+npm run dev
+```
 
-🧪 Contoh API Endpoint
-Method	Endpoint	Keterangan
-POST	/api/login	Login user
-POST	/api/logout	Logout
-GET	/api/balita	List balita
-POST	/api/balita	Tambah balita
-GET	/api/jadwal	List jadwal
-POST	/api/pengaduan	Kirim pengaduan
-📂 Struktur Folder Backend
+➡ Frontend berjalan di: **http://localhost:5173**
+
+---
+
+<br>
+
+# 🧩 **Fitur-Fitur Utama**
+
+### 🔐 Autentikasi
+- Login dengan token Laravel Sanctum  
+- Role admin & kader  
+- Protected routing (React)
+
+### 🧒 Data Balita
+- CRUD lengkap  
+
+### 🤰 Data Ibu Hamil
+- Monitoring data & catatan kesehatan
+
+### 📅 Jadwal Posyandu
+- Admin & kader dapat mengatur jadwal
+
+### 📢 Pengaduan Masyarakat
+- User publik bisa mengirim laporan  
+- Admin mereview
+
+### 🎨 Frontend Modern
+- UI cantik berbasis TailwindCSS  
+- Komponen clean dan reusable  
+
+---
+
+<br>
+
+# 📡 **Daftar API Endpoint**
+
+| Method | Endpoint | Deskripsi |
+|--------|----------|-----------|
+| POST | `/api/login` | Login |
+| POST | `/api/logout` | Logout |
+| GET | `/api/balita` | List data balita |
+| POST | `/api/balita` | Tambah balita |
+| PUT | `/api/balita/{id}` | Edit balita |
+| DELETE | `/api/balita/{id}` | Hapus balita |
+| GET | `/api/ibu-hamil` | Data ibu hamil |
+| GET | `/api/jadwal` | Jadwal posyandu |
+| POST | `/api/pengaduan` | Kirim pengaduan |
+
+---
+
+<br>
+
+# 📁 **Struktur Folder Lengkap**
+
+### 📌 Backend (Laravel)
+```
 posyandu-backend/
  ├── app/
- ├── bootstrap/
- ├── config/
+ │    ├── Http/
+ │    ├── Models/
+ │    └── Middleware/
  ├── database/
  │    ├── migrations/
  │    └── seeders/
- ├── public/
- ├── resources/
  ├── routes/
  │    ├── api.php
  │    └── web.php
- └── vendor/
+ └── resources/
+```
 
-🎨 4. Frontend – React + Vite
-📌 Lokasi: posyandu-frontend/
-🔧 Instalasi Frontend
-1. Masuk ke folder
-cd posyandu-frontend
-
-2. Install dependency
-npm install
-
-3. Jalankan aplikasi
-npm run dev
-
-
-Akses frontend:
-http://localhost:5173
-
-⚙ Fitur Frontend
-
-Login (berbasis token Sanctum)
-
-Protected route (admin/kader)
-
-Dashboard admin
-
-Dashboard kader
-
-CRUD balita & ibu hamil
-
-Kelola jadwal
-
-Pengaduan masyarakat
-
-Axios service modular
-
-TailwindCSS modern UI
-
-📂 Struktur Folder Frontend
+### 📌 Frontend (React)
+```
 posyandu-frontend/
  ├── src/
  │    ├── components/
@@ -159,43 +227,66 @@ posyandu-frontend/
  │    ├── layouts/
  │    ├── services/
  │    └── utils/
- ├── public/
  ├── index.html
  ├── package.json
  └── vite.config.js
+```
 
-🔌 5. Konfigurasi Axios (Frontend → Backend)
+---
 
-File service axios biasanya seperti:
+<br>
 
+# 🔌 **Contoh Konfigurasi Axios (Frontend)**
+
+`src/services/api.js`:
+
+```js
 import axios from "axios";
 
 const api = axios.create({
   baseURL: "http://127.0.0.1:8000/api",
 });
 
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
 export default api;
+```
 
+---
 
-Token dari login disimpan di:
+<br>
 
-localStorage
+# ⚡ **Cara Menjalankan Fullstack**
 
+### 1️⃣ Jalankan Backend
+```sh
+cd posyandu-backend
+php artisan serve
+```
 
-dan dikirim via axios interceptor.
+### 2️⃣ Jalankan Frontend
+```sh
+cd posyandu-frontend
+npm run dev
+```
 
-🔑 6. Role System
-Role	Hak akses
-Admin	Full akses seluruh menu
-Kader	Mengelola data posyandu
-Publik	Kirim pengaduan & lihat jadwal
-📦 7. Struktur Project (Root)
-Sistem-Monitoring-Posyandu-/
- ├── posyandu-backend/    → Laravel API
- ├── posyandu-frontend/   → React + Vite
- ├── README.md            → dokumentasi ini
- └── .gitignore
+Aplikasi siap digunakan 🎉
 
-📄 8. License
+---
 
-Project ini bebas digunakan untuk pembelajaran dan tugas.
+<br>
+
+# 📄 License
+
+Proyek ini bebas digunakan untuk pembelajaran & pengembangan aplikasi.
+
+---
+
+<div align="center">
+  
+### ✨ Terima kasih sudah menggunakan Sistem Monitoring Posyandu ✨  
+</div>
