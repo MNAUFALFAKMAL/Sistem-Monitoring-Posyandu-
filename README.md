@@ -34,9 +34,9 @@ Sistem digital untuk memantau data Posyandu, termasuk balita, ibu hamil, jadwal,
 
 # 📚 **Daftar Isi**
 - [📖 Deskripsi](#-deskripsi)  
-- [📂 Struktur Project](#-struktur-project)  
+- [📂 Struktur Project Utama](#-struktur-project-utama)  
 - [🛠️ Instalasi Backend Laravel](#-instalasi-backend-laravel)  
-- [🎨 Instalasi Frontend React](#-instalasi-frontend-react)  
+- [🎨 Instalasi Frontend React](#-instalasi-frontend-+-react)  
 - [🧩 Fitur-Fitur utama](#-fitur-fitur-utama)  
 - [📡 Daftar API Endpoint](#-daftar-api-endpoint)  
 - [📁 Struktur Folder Lengkap](#-struktur-folder-lengkap)  
