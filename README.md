@@ -1,66 +1,201 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+📘 Sistem Monitoring Posyandu – Full Documentation
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi Sistem Monitoring Posyandu terdiri dari 2 bagian:
 
-## About Laravel
+Backend → Laravel 10 (REST API)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Frontend → React + Vite + TailwindCSS
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Dokumentasi ini memuat seluruh panduan instalasi, fitur, struktur folder, dan API.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🌐 1. Project Overview
 
-## Learning Laravel
+Sistem ini dibuat untuk:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Monitoring data Balita
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Monitoring data Ibu Hamil
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Manajemen Jadwal Posyandu
 
-## Laravel Sponsors
+Sistem Pengaduan Masyarakat
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Multi role: Admin, Kader, Publik
 
-### Premium Partners
+Backend API menggunakan Laravel Sanctum
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Frontend menggunakan React dengan Vite
 
-## Contributing
+🛠 2. Instalasi Project (Root)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Clone repository ini:
 
-## Code of Conduct
+git clone https://github.com/MNAUFALFAKMAL/Sistem-Monitoring-Posyandu-.git
+cd Sistem-Monitoring-Posyandu-
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+Project terdiri dari:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+posyandu-backend/   → Laravel REST API
+posyandu-frontend/  → React + Vite
 
-## License
+🚀 3. Backend – Laravel API
+📌 Lokasi: posyandu-backend/
+🔧 Instalasi Backend
+1. Masuk ke folder backend
+cd posyandu-backend
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Install dependency PHP
+composer install
+
+3. Copy file environment
+cp .env.example .env
+
+4. Generate key
+php artisan key:generate
+
+5. Buat database di MySQL
+
+Nama rekomendasi:
+
+posyandu
+
+6. Edit konfigurasi database di .env
+DB_DATABASE=posyandu
+DB_USERNAME=root
+DB_PASSWORD=
+
+7. Jalankan migration + seeder
+php artisan migrate --seed
+
+8. Jalankan server
+php artisan serve
+
+
+Akses API:
+http://127.0.0.1:8000
+
+⚙ Fitur Backend
+
+Login & autentikasi (Laravel Sanctum)
+
+CRUD Data Balita
+
+CRUD Ibu Hamil
+
+CRUD Jadwal
+
+Sistem Pengaduan
+
+Middleware role (Admin / Kader)
+
+Email Notification (opsional)
+
+🧪 Contoh API Endpoint
+Method	Endpoint	Keterangan
+POST	/api/login	Login user
+POST	/api/logout	Logout
+GET	/api/balita	List balita
+POST	/api/balita	Tambah balita
+GET	/api/jadwal	List jadwal
+POST	/api/pengaduan	Kirim pengaduan
+📂 Struktur Folder Backend
+posyandu-backend/
+ ├── app/
+ ├── bootstrap/
+ ├── config/
+ ├── database/
+ │    ├── migrations/
+ │    └── seeders/
+ ├── public/
+ ├── resources/
+ ├── routes/
+ │    ├── api.php
+ │    └── web.php
+ └── vendor/
+
+🎨 4. Frontend – React + Vite
+📌 Lokasi: posyandu-frontend/
+🔧 Instalasi Frontend
+1. Masuk ke folder
+cd posyandu-frontend
+
+2. Install dependency
+npm install
+
+3. Jalankan aplikasi
+npm run dev
+
+
+Akses frontend:
+http://localhost:5173
+
+⚙ Fitur Frontend
+
+Login (berbasis token Sanctum)
+
+Protected route (admin/kader)
+
+Dashboard admin
+
+Dashboard kader
+
+CRUD balita & ibu hamil
+
+Kelola jadwal
+
+Pengaduan masyarakat
+
+Axios service modular
+
+TailwindCSS modern UI
+
+📂 Struktur Folder Frontend
+posyandu-frontend/
+ ├── src/
+ │    ├── components/
+ │    ├── pages/
+ │    ├── context/
+ │    ├── layouts/
+ │    ├── services/
+ │    └── utils/
+ ├── public/
+ ├── index.html
+ ├── package.json
+ └── vite.config.js
+
+🔌 5. Konfigurasi Axios (Frontend → Backend)
+
+File service axios biasanya seperti:
+
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://127.0.0.1:8000/api",
+});
+
+export default api;
+
+
+Token dari login disimpan di:
+
+localStorage
+
+
+dan dikirim via axios interceptor.
+
+🔑 6. Role System
+Role	Hak akses
+Admin	Full akses seluruh menu
+Kader	Mengelola data posyandu
+Publik	Kirim pengaduan & lihat jadwal
+📦 7. Struktur Project (Root)
+Sistem-Monitoring-Posyandu-/
+ ├── posyandu-backend/    → Laravel API
+ ├── posyandu-frontend/   → React + Vite
+ ├── README.md            → dokumentasi ini
+ └── .gitignore
+
+📄 8. License
+
+Project ini bebas digunakan untuk pembelajaran dan tugas.
